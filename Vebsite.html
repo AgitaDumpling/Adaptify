@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Shop - Buy T-shirt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .details {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .details h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .details p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .price {
+            font-size: 1.5em;
+            color: #28a745;
+            margin-top: 20px;
+        }
+        .buy-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            background-color: #218838;
+        }
+        .counter {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="product">
+            <div class="image">
+                <img src="https://example.com/t-shirt-image.jpg" alt="T-shirt">
+            </div>
+            <div class="details">
+                <h1>Classic White T-shirt</h1>
+                <p>This classic white t-shirt is made of 100% cotton, offering a soft and comfortable fit. Perfect for casual wear or as a wardrobe staple, this t-shirt is available in multiple sizes.</p>
+                <p class="price">$19.99</p>
+                <a href="#" id="buy-button" class="buy-btn">Buy Now</a>
+                <p class="counter">Interested People: <span id="interested-counter">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Clothing Shop. All rights reserved.
+    </footer>
+
+    <script>
+        // Initialize the counter from localStorage or set it to 0 if it's not available
+        let counter = localStorage.getItem('interestedCount') ? parseInt(localStorage.getItem('interestedCount')) : 0;
+
+        // Display the initial counter value
+        document.getElementById('interested-counter').innerText = counter;
+
+        // Handle Buy Now button click event
+        document.getElementById('buy-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            // Increment the counter
+            counter++;
+            
+            // Update the counter display
+            document.getElementById('interested-counter').innerText = counter;
+            
+            // Save the updated counter value to localStorage
+            localStorage.setItem('interestedCount', counter);
+        });
+    </script>
+</body>
+</html>
