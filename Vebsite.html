@@ -3,88 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adaptify - Risinājumi, kas pielāgojas tev! </title>
+    <title>Adaptify - Risinājumi, kas pielāgojas tev!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* General Body Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
+
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
+        /* Modern Product Card Styling */
         .product {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: row;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            gap: 30px;
         }
-        .product img {
+
+        /* Product Image */
+        .image {
+            flex: 1;
+        }
+
+        .image img {
             max-width: 100%;
-            border-radius: 8px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
         }
+
+        .image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Product Details */
         .details {
             flex: 1;
-            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
+
         .details h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
+
         .details p {
-            font-size: 1.2em;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 10px 0;
         }
+
         .price {
-            font-size: 1.5em;
+            font-size: 2rem;
+            font-weight: 600;
             color: #28a745;
             margin-top: 20px;
         }
-        .buy-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: #fff;
-            background-color: #28a745;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        .buy-btn:hover {
-            background-color: #218838;
-        }
-        .counter {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #333;
-        }
+
+        /* Dropdown Styling */
         .selector-group {
             margin-top: 20px;
         }
+
         .selector-group label {
-            font-size: 1.2em;
+            font-size: 1.1rem;
             margin-right: 10px;
         }
+
         .selector-group select {
-            padding: 5px 10px;
-            font-size: 1.1em;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: border-color 0.3s ease;
         }
+
+        .selector-group select:hover {
+            border-color: #333;
+        }
+
+        /* Modern Buy Button */
+        .buy-btn {
+            display: inline-block;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #28a745;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+        }
+
+        .buy-btn:hover {
+            background-color: #219150;
+            transform: translateY(-2px);
+        }
+
+        /* Interested Counter */
+        .counter {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Footer Styling */
         footer {
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
             background-color: #333;
             color: #fff;
+            margin-top: 40px;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product {
+                flex-direction: column;
+            }
+
+            .details h1 {
+                font-size: 2rem;
+            }
+
+            .price {
+                font-size: 1.5rem;
+            }
+        }
+        .buy-btn {
+    display: inline-flex; /* Use inline-flex to allow for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #28a745;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+}
     </style>
 </head>
 <body>
@@ -95,12 +175,9 @@
                 <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="T-shirt">
             </div>
             <div class="details">
-                <h1>
-                    Daudzfunkcionāls apģērbs
-                </h1>
-                <p>
-                    
-                </p>
+                <h1>Daudzfunkcionāls apģērbs</h1>
+                <p></p>
+                <p></p>
 
                 <!-- Color and Size Selectors -->
                 <div class="selector-group">
@@ -127,9 +204,9 @@
                     </select>
                 </div>
 
-                <p class="price"> 49.99€ </p>
+                <p class="price">49.99€</p>
                 <p><sub>Cena ar PVN</sub></p>
-                <a href="#" id="buy-button" class="buy-btn">Pirkt tagad</a>
+                <a href="#" text-align: center id="buy-button" class="buy-btn">Pirkt tagad</a>
                 <p class="counter">Ieinterisētie: <span id="interested-counter">0</span></p>
             </div>
         </div>
