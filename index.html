@@ -5,98 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adaptify - Risinājumi, kas pielāgojas tev!</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>Adaptify</h1> <!-- Logo -->
-            </div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#">Mājas</a></li>
-                    <li><a href="#">Produkti</a></li>
-                    <li><a href="#">Par mums</a></li>
-                    <li><a href="#">Sazinies</a></li>
-                </ul>
-            </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Meklēt produktus..." />
-                <button type="submit">Meklēt</button>
-            </div>
-        </div>
-    </header>
-
     <style>
-        header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo h1 {
-    font-size: 2em;
-    margin: 0;
-    font-weight: bold;
-}
-
-.nav-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-menu li {
-    margin: 0 20px;
-}
-
-.nav-menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-    color: #28a745; /* Highlight color on hover */
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
-.search-container input {
-    padding: 10px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-.search-container button {
-    padding: 10px 15px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.search-container button:hover {
-    background-color: #218838; /* Darker green on hover */
-}
-
         /* General Body Styling */
         body {
             font-family: 'Poppins', sans-serif;
@@ -104,6 +13,83 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px; /* Reduced padding for a sleeker look */
+            position: relative;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%; /* Adjusted to give more space on larger screens */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center; /* Center the logo and text vertically */
+        }
+
+        .logo img {
+            height: 50px; /* Make logo height responsive */
+            margin-right: 10px; /* Space between logo image and text */
+        }
+
+        .logo h1 {
+            font-size: 1.8em; /* Adjusted font size */
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Search Container */
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #218838; /* Darker green on hover */
         }
 
         .container {
@@ -188,7 +174,7 @@
         }
 
         .selector-group select:hover {
-            border-color: #333;
+            border-color: #47d2fc;
         }
 
         /* Modern Buy Button */
@@ -229,36 +215,62 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-menu ul {
+                display: none; /* Hide the menu by default */
+                flex-direction: column; /* Stack menu items vertically */
+                position: absolute; /* Position menu absolutely */
+                top: 60px; /* Position below the header */
+                left: 0; /* Align to the left */
+                background-color: #333; /* Same background as header */
+                width: 100%; /* Full width */
+                z-index: 1000; /* Bring to front */
+                padding: 10px 0; /* Padding for the menu */
+            }
+
+            .nav-menu ul.show {
+                display: flex; /* Show the menu when toggled */
+            }
+
+            .hamburger {
+                display: flex; /* Show the hamburger icon */
+            }
+
             .product {
-                flex-direction: column;
+                flex-direction: column; /* Stack product details on top of each other */
             }
 
             .details h1 {
-                font-size: 2rem;
+                font-size: 2rem; /* Adjust title size */
             }
 
             .price {
-                font-size: 1.5rem;
+                font-size: 1.5rem; /* Adjust price size */
+            }
+
+            .logo img {
+                height: 40px; /* Adjust logo height for mobile */
+            }
+
+            .nav-menu li {
+                margin: 10px 0; /* Space between items in mobile view */
             }
         }
-        .buy-btn {
-    display: inline-flex; /* Use inline-flex to allow for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    padding: 15px 50px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #28a745;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-weight: 600;
-}
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="c:\Users\User\Desktop\Latvijas universitāte\Uzņēmumu izveide un attīstība\Ekrānuzņēmums 2024-09-20 112812.png" alt="Adaptify Logo"/> <!-- Logo Image -->
+                <h1>Adaptify</h1> <!-- Logo -->
+            </div>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
 
     <div class="container">
         <div class="product">
@@ -302,6 +314,16 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="Par mums">
+                <h1>Par mums</h1>
+                <p>Mēs, "Adaptify", esam jauns uzņēmums, kas tika dibināts 2024.gadā. Esam 3 radošas un mērķtiecīgas meitenes, kuras satikās pareizajā vietā un laikā. Tā tapa ideja - radīt daudzfunkcionālu apģērbu. Pašas esam saskārušās ar problēmu, ka nevaram izvēlēties ko vilkt, pārāk daudz drēbju, ka skapi pat nevar aizvērt, visas drēbes veikalos  tik vienādas un parastas, tāpēc vēlējāmies radīt ko tādu, kas atrisinātu arī mūsu problēmu.  Mūsu misija  ir ražot ilgstpējīgu risinājumu ikdienišķai apģērba lietošanai. Vienmēr ar prieku un rūpību izstrādājam katru apģērbu, lai tas ir kvalitatīvs līdz pēdējai niansei. 👗🧵
+                </p>
+                <h2>Sociālie tīkli</h2>
+                <a href=”https://www.instagram.com/adaptify_latvia?igsh=YTJjdXF3dHc3NzBq”>Instragram</a>
+                <a href=””>Tik tok</a>
+                   
+            </div>
 
     <footer>
         &copy; 2024 Adaptify. All rights reserved.
