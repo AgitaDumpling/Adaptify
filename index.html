@@ -216,26 +216,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-menu ul {
-                display: none; /* Hide the menu by default */
-                flex-direction: column; /* Stack menu items vertically */
-                position: absolute; /* Position menu absolutely */
-                top: 60px; /* Position below the header */
-                left: 0; /* Align to the left */
-                background-color: #333; /* Same background as header */
-                width: 100%; /* Full width */
-                z-index: 1000; /* Bring to front */
-                padding: 10px 0; /* Padding for the menu */
-            }
-
-            .nav-menu ul.show {
-                display: flex; /* Show the menu when toggled */
-            }
-
-            .hamburger {
-                display: flex; /* Show the hamburger icon */
-            }
-
             .product {
                 flex-direction: column; /* Stack product details on top of each other */
             }
@@ -250,10 +230,6 @@
 
             .logo img {
                 height: 40px; /* Adjust logo height for mobile */
-            }
-
-            .nav-menu li {
-                margin: 10px 0; /* Space between items in mobile view */
             }
         }
     </style>
